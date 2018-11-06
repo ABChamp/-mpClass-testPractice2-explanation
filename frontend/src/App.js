@@ -13,7 +13,7 @@ class App extends Component {
     // <Route> เป็น component ที่ทำหน้าที่ในการ render ui ตาม match ของ path
     // <Switch> จะช่วยจัดการในการ render component เดียวในกรณีมีการที่ส่วนที่ต่อหลังจาก / 
     // ที่เป็น :id และ /register จะทำงานพร้อมกันถ้าเข้าเงื่อนไขที่นี้ 
-    // <Switch> จะสั่งใน render แค่ component เดียวที่เข้าเงื่อนไขและอยู่ข้างบนสุน
+    // <Switch> จะสั่งใน render แค่ component เดียวที่เข้าเงื่อนไขและอยู่ข้างบนสุด
     return (
       <Switch>
           {/* opation: exact จะเป็นบังคับให้ route กำหนดชื่อ url ให้ตรงเท่านั้นถึงจะทำงาน */}

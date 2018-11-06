@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-
+// จะใช้อย่าลืม import
+import FacebookLogin from 'react-facebook-login';
+import axios from 'axios';
 class Login extends Component {
     constructor(props) {
         // * ต้องสร้าง constructor ด้วยเพราะเราจะใช้ props จากโหนดที่ render compponent นี้
@@ -50,6 +52,20 @@ class Login extends Component {
             }
         })
     }
+    // เราสามารถใช้ arrow function ในการ bind this ได้โดยไม่ต้องประกาศใน consturctor
+    responseFacebook = (res) => {
+        var data = {
+            email : response.email,
+            password: "" // เวลา login เราจะไม่ใช้ password เพระาเราขอสิทธิของข้อมูลมาแล้ว
+        }
+
+        axios.post("http://localhost:3001/login", data).then((res) => {
+            if (res.data.status) { // เป็น True
+                this.props.history.push(`/home/${res.data.id}`)
+            } else {
+            }
+        })
+    }
 
     render() {
         return (
@@ -58,6 +74,11 @@ class Login extends Component {
                 <input type="text" onChange={this.handleChangeEmail} />
                 <input type="password" onChange={this.handleChangePassword} />
                 <button type="button" onClick={this.onClick}> Login </button>
+                <FacebookLogin
+                    appId="1088597931155576"
+                    autoLoad={false}
+                    fields="name,email,picture"
+                    callback={this.responseFacebook} />
             </div>
         )
     }
