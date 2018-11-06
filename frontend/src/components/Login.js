@@ -35,7 +35,7 @@ class Login extends Component {
         // เป็นการดึงค่าที่เอามาเก็บไว้ในตัวแปรตัวหนึ่งเราสามารถทำอะไรได้ที่จะไม่ยุ่งกับข้อมูลใน state ณ ขณะนั้น
         var data = {
             email : this.state.email,
-            password: this.state.password
+            password: this.state.password,
         }
         // ก่อนจะถึงการทำ api ด้วย axois เราจะเช็คก่อนว่าเราใส่ email ถูกต้องการ format หรือไหมหรือใส่ไม่ใส่ email หรือ password มา
         // ****  ณ จุดๆ เขียนฟังก์ชั่นตรวจสอบ ****
@@ -55,7 +55,7 @@ class Login extends Component {
     // เราสามารถใช้ arrow function ในการ bind this ได้โดยไม่ต้องประกาศใน consturctor
     responseFacebook = (res) => {
         var data = {
-            email : response.email,
+            email : res.email,
             password: "" // เวลา login เราจะไม่ใช้ password เพระาเราขอสิทธิของข้อมูลมาแล้ว
         }
 
@@ -70,7 +70,9 @@ class Login extends Component {
     render() {
         return (
             <div>
-                {/* สังเกตฟังก์ชั่นจะไม่มี () ถ้าใส่จะเป็นการเรียกใช้งานแต่เริ่มทำงาน component นี้เลย ซึ่งทำให้โค้ตเราทำงานผิดพลาด */}
+                {/* สังเกตเรียกใช้ฟังก์ชั่นใน input หรือ button จะไม่มี () 
+                    ถ้าใส่จะเป็นการเรียกใช้งานแต่เริ่มทำงาน component นี้เลย 
+                    ซึ่งทำให้โค้ตเราทำงานผิดพลาด */}
                 <input type="text" onChange={this.handleChangeEmail} />
                 <input type="password" onChange={this.handleChangePassword} />
                 <button type="button" onClick={this.onClick}> Login </button>
