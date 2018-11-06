@@ -19,7 +19,7 @@ class App extends Component {
           {/* opation: exact จะเป็นบังคับให้ route กำหนดชื่อ url ให้ตรงเท่านั้นถึงจะทำงาน */}
           <Route exact path="/" component={Login} />
           <Route path="/register" component={Register} />
-          <Route path="/home" component={Home} />
+          <Route path="/home/:id" component={Home} />
       </Switch>
     );
   }
