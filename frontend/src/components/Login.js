@@ -73,8 +73,8 @@ class Login extends Component {
                 {/* สังเกตเรียกใช้ฟังก์ชั่นใน input หรือ button จะไม่มี () 
                     ถ้าใส่จะเป็นการเรียกใช้งานแต่เริ่มทำงาน component นี้เลย 
                     ซึ่งทำให้โค้ตเราทำงานผิดพลาด */}
-                <input type="text" onChange={this.handleChangeEmail} />
-                <input type="password" onChange={this.handleChangePassword} />
+                <input type="text" onChange={this.handleChangeEmail} placeholder="email"/>
+                <input type="password" onChange={this.handleChangePassword} placeholder="password"/>
                 <button type="button" onClick={this.onClick}> Login </button>
                 <FacebookLogin
                     appId="1088597931155576"
